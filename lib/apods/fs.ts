@@ -14,7 +14,10 @@ export function readApods(): [Apoy] {
 	return JSON.parse(readFileSync(apodsPath).toString())
 }
 
-export function writeApods(apods: [Apod]) {
+/*
+ * TODO: determine if this function should handle merging
+ */
+export function writeApods(apods: [Apoy]) {
 	writeFileSync(apodsPath, JSON.stringify(apods))
 }
 
