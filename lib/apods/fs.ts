@@ -42,3 +42,20 @@ export function readLastApod(): Apod {
 
 	return lastAopd
 }
+
+function mergeApods(missing: [Apod]) {
+	const apods = readApods()
+	const matchYear = (apod: Apod) => (apoy: Apoy) => getYear(apod.date) === apoy.year
+
+	missing.forEach(apod => {
+		const apoy = apods.find(matchYear(apod))
+
+		if (!apoy) {
+			const missingApoy: Apoy = { year: getYear(apod.date), apods: [apod], }
+
+			apods.push(missingApoy)
+		} else { apoy.apods.push(apod) }
+	})
+
+	return apods
+}
