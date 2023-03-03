@@ -12,5 +12,5 @@ export interface Apod {
 // APOY stands for Astronomy Pictures of the Year
 export interface Apoy {
 	year: string,
-	apods: [Apod],
+	apods: Apod[],
 }

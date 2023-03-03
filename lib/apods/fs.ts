@@ -4,7 +4,7 @@ import { getYear } from "./time"
 
 const apodsPath = "./apods.json"
 
-export function readApods(): [Apoy] {
+export function readApods(): Apoy[] {
 	/*
 	 * readFileSync accepts an encoding as an option,
 	 * however, while browsing online about encodings
@@ -14,7 +14,7 @@ export function readApods(): [Apoy] {
 	return JSON.parse(readFileSync(apodsPath).toString())
 }
 
-export function writeApods(apods: [Apoy]) {
+export function writeApods(apods: Apoy[]) {
 	writeFileSync(apodsPath, JSON.stringify(apods))
 }
 
@@ -43,7 +43,7 @@ export function readLastApod(): Apod {
 	return lastAopd
 }
 
-function mergeApods(missing: [Apod]) {
+function mergeApods(missing: Apod[]) {
 	const apods = readApods()
 	const matchYear = (apod: Apod) => (apoy: Apoy) => getYear(apod.date) === apoy.year
 
