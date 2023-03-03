@@ -1,5 +1,6 @@
 import axios from "axios"
-import { Apod } from "./apods"
+import type { Apod } from "./apods"
+import { getMissingApodsDateRange } from "./time"
 
 
 const instance = axios.create({
@@ -9,3 +10,20 @@ const instance = axios.create({
 	 */
 	baseURL: " https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY",
 })
+
+export async function getMissingApods(): Promise<[Apod] | null> {
+	const [start, end] = getMissingApodsDateRange()
+
+	try {
+		const missing = await instance.get("", {
+			params: {
+				start_date: start,
+				end_date: end,
+			},
+		})
+
+		return missing.data
+	} catch (error) {
+		return null
+	}
+}
