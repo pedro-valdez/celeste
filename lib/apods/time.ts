@@ -1,6 +1,7 @@
 import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc"
 import timezone from "dayjs/plugin/timezone"
+import { readLastApod } from "./fs"
 
 
 dayjs.extend(utc)
@@ -20,4 +21,11 @@ export function getYear(date: string) {
 
 export function getTodayDate() {
 	return dayjs().tz().format(dateFormat)
+}
+
+export function getMissingApodsDateRange(): [string, string] {
+	const start = dayjs.tz(readLastApod().date).add(1, "day").format(dateFormat)
+	const end = getTodayDate()
+
+	return [start, end]
 }
