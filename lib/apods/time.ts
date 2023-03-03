@@ -18,6 +18,6 @@ export function getYear(date: string) {
 	return dayjs(date).format(yearFormat)
 }
 
-export function todayDate() {
+export function getTodayDate() {
 	return dayjs().tz().format(dateFormat)
 }
