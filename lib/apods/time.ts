@@ -12,7 +12,12 @@ dayjs.extend(timezone)
 dayjs.tz.setDefault("EST")
 
 const yearFormat = "YYYY"
+const dateFormat = "YYYY-MM-DD"
 
 export function getYear(date: string) {
 	return dayjs(date).format(yearFormat)
+}
+
+export function todayDate() {
+	return dayjs().tz().format(dateFormat)
 }
