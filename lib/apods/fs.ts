@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from "fs"
 import type { Apod, Apoy } from "./apods"
 import { getYear } from "./time"
 
-const apodsPath = "./apods.json"
+const apodsPath = "lib/apods/apods.json"
 
 function readApods(): Apoy[] {
 	/*
