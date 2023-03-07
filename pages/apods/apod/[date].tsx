@@ -42,6 +42,8 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
 	}
 }
 
-export default function ApodAtDate() {
-	return <></>
+export default function ApodAtDate({ apod }: Props) {
+	return (
+		<div>{ apod.date }</div>
+	)
 }
