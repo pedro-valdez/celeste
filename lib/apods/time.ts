@@ -29,3 +29,10 @@ export function getMissingApodsDateRange(): [string, string] {
 
 	return [start, end]
 }
+
+export function isTodayAfterLastApod() {
+	const last = dayjs.tz(readLastApod().date)
+	const today = dayjs().tz().startOf("day")
+
+	return today.isAfter(last)
+}
