@@ -14,6 +14,7 @@ dayjs.tz.setDefault("EST")
 
 const yearFormat = "YYYY"
 const dateFormat = "YYYY-MM-DD"
+export const ONE_DAY = 86400 // one day in seconds
 
 export function getYear(date: string) {
 	return dayjs(date).format(yearFormat)
