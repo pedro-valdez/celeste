@@ -43,3 +43,14 @@ export function isTodayAfterLastApod() {
 export function isDateValid(date: string) {
 	return dayjs(date, dateFormat, true).isValid()
 }
+
+export function isDateInRange(date: string) {
+	const start = dayjs.tz("1995-06-16")
+	const end = dayjs().tz().startOf("day")
+	const moment = dayjs.tz(date)
+
+	const isAfterStart = !moment.isBefore(start)
+	const isBeforeEnd = !moment.isAfter(end)
+
+	return isAfterStart && isBeforeEnd
+}
