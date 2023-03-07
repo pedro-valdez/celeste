@@ -1,5 +1,5 @@
 import { getMissingApods } from "./fetching";
-import { readLastApod, writeUpdate } from "./fs";
+import { readApods, readLastApod, writeUpdate } from "./fs";
 import { isTodayAfterLastApod } from "./time";
 
 export interface Apod {
@@ -33,4 +33,10 @@ export async function getLatestApod(): Promise<Apod> {
 	await updateApods()
 
 	return readLastApod()
+}
+
+export async function getAllApods(): Promise<Apoy[]> {
+	await updateApods()
+
+	return readApods()
 }
