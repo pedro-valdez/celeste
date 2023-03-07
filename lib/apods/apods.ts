@@ -1,3 +1,7 @@
+import { getMissingApods } from "./fetching";
+import { readLastApod, writeUpdate } from "./fs";
+import { isTodayAfterLastApod } from "./time";
+
 export interface Apod {
 	date: string,
 	explanation: string,
@@ -13,4 +17,20 @@ export interface Apod {
 export interface Apoy {
 	year: string,
 	apods: Apod[],
+}
+
+async function updateApods() {
+	const isUpdateNeeded = isTodayAfterLastApod()
+
+	if (isUpdateNeeded) {
+		const missing = await getMissingApods()
+
+		if (missing) { writeUpdate(missing) }
+	}
+}
+
+export async function getLatestApod(): Promise<Apod> {
+	await updateApods()
+
+	return readLastApod()
 }

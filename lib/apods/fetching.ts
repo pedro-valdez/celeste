@@ -11,7 +11,7 @@ const instance = axios.create({
 	baseURL: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY",
 })
 
-async function getMissingApods(): Promise<Apod[] | null> {
+export async function getMissingApods(): Promise<Apod[] | null> {
 	const [start, end] = getMissingApodsDateRange()
 
 	try {

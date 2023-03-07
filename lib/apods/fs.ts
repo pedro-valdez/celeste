@@ -60,7 +60,7 @@ function mergeApods(missing: Apod[]) {
 	return apods
 }
 
-function writeUpdate(missing: Apod[]) {
+export function writeUpdate(missing: Apod[]) {
 	const apods = mergeApods(missing)
 
 	writeApods(apods)
