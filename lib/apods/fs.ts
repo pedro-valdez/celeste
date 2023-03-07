@@ -18,7 +18,7 @@ function writeApods(apods: Apoy[]) {
 	writeFileSync(apodsPath, JSON.stringify(apods))
 }
 
-function readApodAtDate(date: string): Apod | null {
+export function readApodAtDate(date: string): Apod | null {
 	const year = getYear(date)
 	const apods = readApods()
 	const matchYear = (apoy: Apoy) => apoy.year === year
