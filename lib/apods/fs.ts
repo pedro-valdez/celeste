@@ -4,7 +4,7 @@ import { getYear } from "./time"
 
 const apodsPath = "lib/apods/apods.json"
 
-function readApods(): Apoy[] {
+export function readApods(): Apoy[] {
 	/*
 	 * readFileSync accepts an encoding as an option,
 	 * however, while browsing online about encodings
