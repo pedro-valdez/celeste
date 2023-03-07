@@ -1,11 +1,13 @@
 import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc"
 import timezone from "dayjs/plugin/timezone"
+import customParseFormat from "dayjs/plugin/customParseFormat"
 import { readLastApod } from "./fs"
 
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
+dayjs.extend(customParseFormat)
 /*
  * Since the NASA headquarters are in Washington D.C.
  * I decided to use EST as the timezone.
@@ -36,4 +38,8 @@ export function isTodayAfterLastApod() {
 	const today = dayjs().tz().startOf("day")
 
 	return today.isAfter(last)
+}
+
+export function isDateValid(date: string) {
+	return dayjs(date, dateFormat, true).isValid()
 }
