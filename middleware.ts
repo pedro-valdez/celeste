@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
-import { isDateInRange, isDateValid } from "./lib/apods/time"
+import { isDateInRange } from "./lib/apods/time"
+import { isDateValid } from "./lib/time"
 
 
 export function middleware(request: NextRequest) {

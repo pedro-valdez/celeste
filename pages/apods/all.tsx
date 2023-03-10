@@ -1,7 +1,7 @@
 import type { GetStaticProps } from "next"
 import type { Apoy } from "@/lib/apods/apods"
 import { getAllApods } from "@/lib/apods/apods"
-import { ONE_DAY } from "@/lib/apods/time"
+import { ONE_DAY } from "@/lib/time"
 
 
 interface Props {
