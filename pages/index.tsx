@@ -2,6 +2,7 @@ import type { GetStaticProps } from "next"
 import type { Apod } from "@/lib/apods/apods"
 import { getLatestApod } from "@/lib/apods/apods"
 import { ONE_DAY } from "@/lib/apods/time"
+import ApodDisplay from "@/components/ApodDisplay"
 
 
 interface Props {
@@ -21,9 +22,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 }
 
 export default function Home({ apod }: Props) {
-	console.log(apod)
-
   return (
-		<h1>Hello, world!</h1>
+		<main>
+			<ApodDisplay apod={apod} />
+		</main>
   )
 }
