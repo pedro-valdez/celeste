@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	h1 {
+		font-size: 2em;
+		@apply font-black;
+	}
+
+	h2 {
+		font-size: 1.5em;
+		@apply font-bold;
+	}
+}
+
+@layer utilities {
+	.text-body { @apply text-base lg:text-xl 2xl:text-2xl; }
+}
