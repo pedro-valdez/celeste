@@ -17,5 +17,5 @@
 }
 
 @layer utilities {
-	.text-body { @apply text-base lg:text-xl 2xl:text-2xl; }
+	.text-body { @apply text-base sm:text-xl 2xl:text-2xl; }
 }
