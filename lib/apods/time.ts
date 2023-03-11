@@ -2,7 +2,7 @@ import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc"
 import timezone from "dayjs/plugin/timezone"
 import { readLastApod } from "./fs"
-import { dateFormat, getTodayDate } from "../time"
+import { dateFormat, getTodayDate } from "@/lib/time"
 
 
 dayjs.extend(utc)

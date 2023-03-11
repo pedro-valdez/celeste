@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "fs"
 import type { Apod, Apoy } from "./apods"
-import { getYear } from "./time"
+import { getYear } from "@/lib/time"
 
 const apodsPath = "lib/apods/apods.json"
 
