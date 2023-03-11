@@ -6,6 +6,7 @@ import customParseFormat from "dayjs/plugin/customParseFormat"
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(customParseFormat)
+dayjs.tz.setDefault("EST")
 
 
 export const yearFormat = "YYYY"
