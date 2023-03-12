@@ -9,12 +9,12 @@ interface Props {
 export default function ApodMedia({ apod }: Props) {
 	if (apod.media_type === "image") {
 		return (
-			<div className="">
+			<div className="relative aspect-square xl:aspect-auto xl:w-1/2">
 				<Image
 					src={apod.hdurl! || apod.url!}
 					alt={apod.explanation}
 					fill
-					className=""
+					className="object-cover xl:object-contain xl:object-right"
 				/>
 			</div>
 		)
