@@ -32,10 +32,10 @@ export default function ApodDisplay({ apod }: Props) {
 				<p className="">{ apod.explanation }</p>
 			</div>
 
-			<div className="hidden xl:flex xl:gap-x-[3em] xl:h-[calc(100vh-16rem)]">
+			<div className="hidden xl:flex xl:gap-x-12 xl:h-[calc(100vh-16rem)]">
 				<ApodMedia apod={apod} />
 
-				<div className="xl:w-1/2 xl:space-y-4 xl:self-center">
+				<div className="xl:w-1/2 xl:space-y-6 xl:self-center">
 					<h1 className="">
 						👽 Astronomy Picture of {humanDate(apod.date)}
 					</h1>
