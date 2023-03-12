@@ -9,12 +9,12 @@ interface Props {
 export default function ApodMedia({ apod }: Props) {
 	if (apod.media_type === "image") {
 		return (
-			<div className="relative row-start-1 row-end-4">
+			<div className="">
 				<Image
 					src={apod.hdurl! || apod.url!}
 					alt={apod.explanation}
 					fill
-					className="!static w-full h-auto rounded-[1.5em] xl:!absolute xl:h-full xl:object-contain xl:object-right xl:rounded-none xl:py-[1em] 2xl:py-0"
+					className=""
 				/>
 			</div>
 		)
@@ -32,7 +32,7 @@ export default function ApodMedia({ apod }: Props) {
 
 	return (
 		<div>
-			<div className="w-full h-full bg-red-500">
+			<div className="">
 			</div>
 		</div>
 	)

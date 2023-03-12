@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 export default function Home({ apod }: Props) {
   return (
-		<div className="text-body px-4 py-8">
+		<div className="">
 			<ApodDisplay apod={apod} />
 		</div>
   )
