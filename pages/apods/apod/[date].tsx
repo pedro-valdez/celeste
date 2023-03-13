@@ -3,6 +3,8 @@ import type { ParsedUrlQuery } from "querystring"
 import type { Apod, Apoy } from "@/lib/apods/apods"
 import { getAllApods } from "@/lib/apods/apods"
 import { getApodAtDate } from "@/lib/apods/apods"
+import Navbar from "@/components/Navbar"
+import ApodDisplay from "@/components/ApodDisplay"
 
 
 interface Props {
@@ -44,6 +46,9 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
 
 export default function ApodAtDate({ apod }: Props) {
 	return (
-		<div>{ apod.date }</div>
+		<div className="px-4 pt-8 pb-16 sm:px-8 xl:pt-0 xl:pb-8">
+			<Navbar date={apod.date}/>
+			<ApodDisplay apod={apod}/>
+		</div>
 	)
 }
