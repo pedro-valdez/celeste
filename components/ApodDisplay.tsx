@@ -23,7 +23,7 @@ export default function ApodDisplay({ apod }: Props) {
 						? <>
 								{' '}
 								<br />
-								<span className="">by </span>
+								<span className="text-black">by </span>
 								{apod.copyright}
 							</>
 						: <></>
@@ -45,7 +45,7 @@ export default function ApodDisplay({ apod }: Props) {
 							? <>
 									{' '}
 									<br />
-									<span className="">by </span>
+									<span className="text-black">by </span>
 									{apod.copyright}
 								</>
 							: <></>
