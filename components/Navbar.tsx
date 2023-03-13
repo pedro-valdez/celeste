@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { HiMenu, HiXCircle } from "react-icons/hi"
+import Link from "next/link"
+import { getTodayDate, getPreviousDate, getNextDate } from "@/lib/time"
+import { useRouter } from "next/router"
 
 
 interface Props {
@@ -8,6 +11,7 @@ interface Props {
 
 export default function Navbar({ date }: Props) {
 	const [isOpen, setIsOpen] = useState(false)
+	const router = useRouter()
 
 	return (
 		<div className={`fixed xl:static
@@ -24,14 +28,31 @@ export default function Navbar({ date }: Props) {
 			<nav className={`${isOpen ? "block" : "hidden"} xl:block
 				text-right`}>
 				<ul className="font-bold space-y-2 xl:space-y-0 xl:flex xl:gap-x-6 xl:text-nasa-blue xl:items-center xl:justify-end">
-					<li><span className="underline mr-2">All Apods</span>🔭</li>
-					<li className="xl:text-white xl:px-6 xl:py-1.5 xl:rounded-full xl:bg-nasa-blue"><span className="underline mr-2 xl:no-underline">Calendar</span>📅</li>
+					<Link href="/apods/all">
+						<li><span className="underline mr-2">All Apods</span>🔭</li>
+					</Link>
+					<li className="xl:text-white xl:px-6 xl:py-1.5 xl:rounded-full xl:bg-nasa-blue">
+						<input
+							className="bg-nasa-blue"
+							type="date"
+							min="1995-06-16"
+							max={getTodayDate()}
+							id="date"
+							name="date"
+							onChange={(e) => router.push(`/apods/apod/${e.currentTarget.value}`)}
+							required
+						/>
+					</li>
 					{
 						date
 							?
 							<div className="space-y-2 xl:fixed xl:right-12 xl:bottom-4 xl:flex xl:gap-x-6 xl:space-y-0">
-								<li><span className="underline mr-2">Previous</span>⬅️</li>
-								<li><span className="underline mr-2">Next</span>➡️</li>
+								<Link href={`/apods/apod/${getPreviousDate(date)}`}>
+									<li><span className="underline mr-2">Previous</span>⬅️</li>
+								</Link>
+								<Link href={`/apods/apod/${getNextDate(date)}`}>
+									<li><span className="underline mr-2">Next</span>➡️</li>
+								</Link>
 							</div>
 							:
 							<></>
