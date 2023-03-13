@@ -3,6 +3,7 @@ import type { Apod } from "@/lib/apods/apods"
 import { getLatestApod } from "@/lib/apods/apods"
 import { ONE_DAY } from "@/lib/time"
 import ApodDisplay from "@/components/ApodDisplay"
+import Navbar from "@/components/Navbar"
 
 
 interface Props {
@@ -23,7 +24,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 export default function Home({ apod }: Props) {
   return (
-		<div className="px-4 py-8 sm:px-8">
+		<div className="px-4 pt-8 pb-16 sm:px-8 xl:pt-0 xl:pb-8">
+			<Navbar />
 			<ApodDisplay apod={apod} />
 		</div>
   )
