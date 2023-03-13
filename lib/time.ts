@@ -36,3 +36,11 @@ export function humanDate(date: string): string {
 
 	return day.format(humanFormat)
 }
+
+export function getPreviousDate(date: string) {
+	return dayjs.tz(date).subtract(1, "day").format(dateFormat)
+}
+
+export function getNextDate(date: string) {
+	return dayjs.tz(date).add(1, "day").format(dateFormat)
+}
