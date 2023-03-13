@@ -32,7 +32,7 @@ export default function ApodDisplay({ apod }: Props) {
 				<p className="">{ apod.explanation }</p>
 			</div>
 
-			<div className="hidden xl:flex xl:gap-x-12 xl:h-[calc(100vh-16rem)]">
+			<div className="hidden xl:flex xl:gap-x-12 xl:h-screen xl:min-h-[600px] xl:max-h-[800px]">
 				<ApodMedia apod={apod} />
 
 				<div className="xl:w-1/2 xl:space-y-6 xl:self-center">
@@ -51,7 +51,7 @@ export default function ApodDisplay({ apod }: Props) {
 							: <></>
 						}
 					</h2>
-					<p className="xl:max-w-md 2xl:max-w-2xl xl:overflow-x-scroll">{ apod.explanation }</p>
+					<p className="xl:max-w-md 2xl:max-w-2xl xl:overflow-y-scroll">{ apod.explanation }</p>
 				</div>
 			</div>
 		</>
