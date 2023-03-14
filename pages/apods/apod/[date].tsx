@@ -8,7 +8,7 @@ import ApodDisplay from "@/components/ApodDisplay"
 
 
 interface Props {
-	apod: Apod,
+	apod: Apod | null,
 }
 
 interface Params extends ParsedUrlQuery {
@@ -35,7 +35,13 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
 
 	const apod = await getApodAtDate(date)
 
-	if (!apod) { return { notFound: true } }
+	if (!apod) {
+		return {
+			props: {
+				apod: null,
+			},
+		}
+	}
 
 	return {
 		props: {
@@ -45,6 +51,20 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
 }
 
 export default function ApodAtDate({ apod }: Props) {
+	if (!apod) {
+		return (
+			<div className="px-4 pt-8 pb-16 sm:px-8 xl:pt-0 xl:pb-8">
+				<Navbar />
+				<div className="h-[calc(100vh-8rem)] flex items-center justify-center">
+					<div className="my-auto">
+						<h1 className="text-nasa-red mb-[1em]">This APOD doesn't exist.</h1>
+						<p>Some dates don't have a corresponding APOD.</p>
+					</div>
+				</div>
+			</div>
+		)
+	}
+
 	return (
 		<div className="px-4 pt-8 pb-16 sm:px-8 xl:pt-0 xl:pb-8">
 			<Navbar date={apod.date}/>
