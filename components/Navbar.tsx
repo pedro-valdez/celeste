@@ -11,6 +11,7 @@ interface Props {
 
 export default function Navbar({ date }: Props) {
 	const [isOpen, setIsOpen] = useState(false)
+	const [calendarDate, setCalendarDate] = useState(date || getTodayDate())
 	const router = useRouter()
 
 	return (
@@ -35,11 +36,15 @@ export default function Navbar({ date }: Props) {
 						<input
 							className="bg-nasa-blue"
 							type="date"
+							value={calendarDate}
 							min="1995-06-16"
 							max={getTodayDate()}
 							id="date"
 							name="date"
-							onChange={(e) => router.push(`/apods/apod/${e.currentTarget.value}`)}
+							onChange={(e) => {
+								setCalendarDate(e.currentTarget.value)
+								router.push(`/apods/apod/${e.currentTarget.value}`)
+							}}
 							required
 						/>
 					</li>
