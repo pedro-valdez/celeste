@@ -2,6 +2,7 @@ import type { GetStaticProps } from "next"
 import type { Apoy } from "@/lib/apods/apods"
 import { getAllApods } from "@/lib/apods/apods"
 import { ONE_DAY } from "@/lib/time"
+import ApodAccordion from "@/components/ApodAccordion"
 
 
 interface Props {
@@ -21,14 +22,15 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 }
 
 export default function AllApods({ apods }: Props) {
+	const flatApods = apods.map(apoy => apoy.apods).flat()
+
 	return (
 		<div>
-			{
-				apods.map((apoy: Apoy) => (
-												 apoy.apods.map(apod => (
-													 <div>{apod.date}</div>
-												 ))
-			)) }
+			<ul>
+				{
+					flatApods.map(apod => ( <ApodAccordion apod={apod}/>))
+				}
+			</ul>
 		</div>
 	)
 }
