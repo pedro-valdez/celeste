@@ -22,10 +22,9 @@ export default function ApodMedia({ apod }: Props) {
 
 	if (apod.media_type === "video") {
 		return (
-			<div className="xl:w-1/2">
-				<video controls className="w-full h-full">
-					<source src={apod.url || apod.hdurl}/>
-				</video>
+			<div className="aspect-square xl:w-1/2">
+				<iframe src={apod.hdurl || apod.url} frameBorder="0" className="w-full h-full">
+				</iframe>
 			</div>
 		)
 	}
