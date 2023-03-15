@@ -22,8 +22,8 @@ export default function ApodMedia({ apod }: Props) {
 
 	if (apod.media_type === "video") {
 		return (
-			<div>
-				<video controls>
+			<div className="xl:w-1/2">
+				<video controls className="w-full h-full">
 					<source src={apod.url || apod.hdurl}/>
 				</video>
 			</div>
@@ -31,8 +31,8 @@ export default function ApodMedia({ apod }: Props) {
 	}
 
 	return (
-		<div>
-			<div className="">
+		<div className="aspect-square xl:w-1/2">
+			<div className="h-full bg-nasa-blue">
 			</div>
 		</div>
 	)
