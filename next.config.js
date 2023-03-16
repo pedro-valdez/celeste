@@ -9,6 +9,12 @@ const nextConfig = {
 				port: "",
 				pathname: "/apod/image/**",
 			},
+			{
+				protocol: "http",
+				hostname: "nusoft.fnal.gov",
+				port: "",
+				pathname: "/nova/public/**",
+			},
 		],
 	},
 }
