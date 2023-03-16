@@ -15,7 +15,7 @@ export default function Navbar({ date }: Props) {
 	const router = useRouter()
 
 	return (
-		<div className={`fixed xl:static
+		<div className={`fixed xl:sticky
 			right-4 bottom-4 xl:left-0 xl:top-0
 			p-4
 			bg-nasa-blue text-white xl:bg-white xl:text-black
