@@ -28,7 +28,13 @@ export default function AllApods({ apods }: Props) {
 		<div>
 			<ul>
 				{
-					flatApods.map(apod => ( <ApodAccordion apod={apod}/>))
+					flatApods.map(apod => (
+							<ApodAccordion
+								apod={apod}
+								key={apod.date}
+							/>
+						)
+					)
 				}
 			</ul>
 		</div>
