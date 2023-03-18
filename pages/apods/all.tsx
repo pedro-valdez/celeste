@@ -28,16 +28,18 @@ export default function AllApods({ apods }: Props) {
 	return (
 		<div className="px-4 pt-8 pb-16 sm:px-8 xl:pt-0 xl:pb-8">
 			<Navbar />
-			<ul className="space-y-4 xl:space-y-8">
-				{
-					flatApods.map(apod => (
-						<li key={apod.date}>
-							<ApodAccordion apod={apod} />
-						</li>
+			<div className="xl:pt-4">
+				<ul className="space-y-4 xl:space-y-8">
+					{
+						flatApods.map(apod => (
+							<li key={apod.date}>
+								<ApodAccordion apod={apod} />
+							</li>
+							)
 						)
-					)
-				}
-			</ul>
+					}
+				</ul>
+			</div>
 		</div>
 	)
 }

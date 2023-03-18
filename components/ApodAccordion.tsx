@@ -14,7 +14,7 @@ export default function Accordion({ apod } : Props) {
 	return (
 		<article>
 			<div
-				className="flex justify-between text-2xl sm:text-3xl 2xl:text-4xl border-b-2 border-nasa-blue pb-4 xl:pb-8"
+				className="flex justify-between text-2xl sm:text-3xl 2xl:text-4xl border-b-2 border-nasa-blue pb-4 xl:pb-8 hover:cursor-pointer"
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				<span className="font-bold text-nasa-blue">{humanDate(apod.date)}</span>
@@ -28,7 +28,11 @@ export default function Accordion({ apod } : Props) {
 			</div>
 			{
 				isOpen
-					? <ApodDisplay apod={apod}/>
+					? (
+						<div className="py-4 xl:py-0">
+							<ApodDisplay apod={apod}/>
+						</div>
+						)
 					: <></>
 			}
 		</article>

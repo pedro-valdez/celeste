@@ -34,7 +34,7 @@ export default function Navbar({ date }: Props) {
 					</Link>
 					<li className="xl:text-white xl:px-6 xl:py-1.5 xl:rounded-full xl:bg-nasa-blue">
 						<input
-							className="bg-nasa-blue"
+							className="bg-nasa-blue text-white hover:cursor-pointer"
 							type="date"
 							value={calendarDate}
 							min="1995-06-16"
