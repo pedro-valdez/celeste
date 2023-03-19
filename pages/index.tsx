@@ -26,7 +26,7 @@ export default function Home({ apod }: Props) {
   return (
 		<div className="px-4 pt-8 pb-16 sm:px-8 xl:pt-0 xl:pb-8">
 			<Navbar />
-			<ApodDisplay apod={apod} />
+			<ApodDisplay apod={apod} main={true} />
 		</div>
   )
 }

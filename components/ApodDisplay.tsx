@@ -5,16 +5,17 @@ import { humanDate } from "@/lib/time";
 
 interface Props {
 	apod: Apod,
+	main?: boolean,
 }
 
-export default function ApodDisplay({ apod }: Props) {
+export default function ApodDisplay({ apod, main }: Props) {
 	return (
 		<>
 			<div className="xl:hidden space-y-4 max-w-xl mx-auto">
 				<h1 className="mb-[1em]">
 					👽 Astronomy{' '}
 					<br className=""/>
-					Picture of {humanDate(apod.date)}
+					Picture of {humanDate(apod.date, main)}
 				</h1>
 				<ApodMedia apod={apod} />
 				<h2>
@@ -37,7 +38,7 @@ export default function ApodDisplay({ apod }: Props) {
 
 				<div className="xl:w-1/2 xl:space-y-6 xl:self-center">
 					<h1 className="">
-						👽 Astronomy Picture of {humanDate(apod.date)}
+						👽 Astronomy Picture of {humanDate(apod.date, main)}
 					</h1>
 					<h2>
 						{ apod.title }
@@ -56,4 +57,9 @@ export default function ApodDisplay({ apod }: Props) {
 			</div>
 		</>
 	)
+}
+
+
+ApodDisplay.defaultProps = {
+	main: false,
 }

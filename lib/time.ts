@@ -26,11 +26,11 @@ export function isDateValid(date: string) {
 	return dayjs(date, dateFormat, true).isValid()
 }
 
-export function humanDate(date: string): string {
+export function humanDate(date: string, main = false): string {
 	const day = dayjs(date).tz()
 	const isToday = day.format(dateFormat) === getTodayDate()
 
-	if (isToday) {
+	if (isToday && main) {
 		return "the Day"
 	}
 
