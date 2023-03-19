@@ -32,9 +32,9 @@ export default function Navbar({ date }: Props) {
 					<Link href="/apods/all">
 						<li><span className="underline mr-2">All Apods</span>🔭</li>
 					</Link>
-					<li className="xl:text-white xl:px-6 xl:py-1.5 xl:rounded-full xl:bg-nasa-blue">
+					<li className="xl:text-white xl:px-6 xl:py-1.5 xl:rounded-full xl:bg-nasa-blue cursor-pointer">
 						<input
-							className="bg-nasa-blue text-white hover:cursor-pointer"
+							className="bg-nasa-blue text-white cursor-pointer"
 							type="date"
 							value={calendarDate}
 							min="1995-06-16"
