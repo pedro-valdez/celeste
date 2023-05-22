@@ -61,8 +61,8 @@ export default function ApodAtDate({ apod, date }: Props) {
 				<Navbar date={date}/>
 				<div className="h-[calc(100vh-8rem)] flex items-center justify-center">
 					<div className="my-auto">
-						<h1 className="text-nasa-red mb-[1em]">The APOD at {humanDate(date)} doesn't exist.</h1>
-						<p>Some dates don't have a corresponding APOD.</p>
+						<h1 className="text-nasa-red mb-[1em]">The APOD at {humanDate(date)} doesn&apost exist.</h1>
+						<p>Some dates don&apost have a corresponding APOD.</p>
 					</div>
 				</div>
 			</div>

@@ -8,7 +8,7 @@ export default function CustomError() {
 			<div className="h-[calc(100vh-8rem)] flex items-center justify-center">
 				<div className="my-auto">
 					<h1 className="text-nasa-red">Error</h1>
-					<p>Some dates don't have an entry.</p>
+					<p>Some dates don&apost have an entry.</p>
 				</div>
 			</div>
 		</div>
