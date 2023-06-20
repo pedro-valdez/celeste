@@ -9,7 +9,7 @@ type MediaProps = {
 
 export default function ApodMedia({ apod }: MediaProps) {
 	return (
-		<figure className="aspect-square relative">
+		<figure className="aspect-square relative md:aspect-video 2xl:w-1/2 2xl:aspect-square">
 			{
 				apod.media_type === "image" ? (
 					<ApodImage apod={apod}/>
