@@ -1,6 +1,4 @@
-import { getApod } from "@/lib/apods"
-import ApodMedia from "../Media"
-import { humanDate } from "@/lib/apods/time"
+import Apod from "./Apod"
 
 type ApodAtDateParams = {
 	params: {
@@ -9,36 +7,10 @@ type ApodAtDateParams = {
 }
 
 export default async function ApodAtDate({ params }: ApodAtDateParams) {
-	const apod = await getApod(params.date)
-
-	if (!apod) { return <></> }
-
 	return (
 		<main>
 			<div>
-
-				<div className="card">
-					<figure className="aspect-square relative">
-						<ApodMedia apod={apod}/>
-					</figure>
-
-					<div className="card-body">
-						<div className="prose">
-							<header>
-								<h1>{ apod.title }</h1>
-								{
-									apod.copyright ? (
-										<p>by <span className="font-bold">{ apod.copyright }</span></p>
-									) : (<></>)
-								}
-								<p>{ humanDate(apod.date) }</p>
-							</header>
-
-							<p>{ apod.explanation }</p>
-						</div>
-					</div>
-				</div>
-
+				<Apod date={params.date} />
 			</div>
 		</main>
 	)
