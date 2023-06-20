@@ -26,7 +26,11 @@ export default async function ApodAtDate({ params }: ApodAtDateParams) {
 						<div className="prose">
 							<header>
 								<h1>{ apod.title }</h1>
-								<p>{ apod.copyright }</p>
+								{
+									apod.copyright ? (
+										<p>by <span className="font-bold">{ apod.copyright }</span></p>
+									) : (<></>)
+								}
 								<p>{ humanDate(apod.date) }</p>
 							</header>
 
