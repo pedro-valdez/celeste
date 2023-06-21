@@ -14,6 +14,14 @@ export default async function Apod({ date }: ApodProps) {
 
 	if (!apod) { return <></> }
 
+	if (apod.error) {
+		return (
+			<div className="h-[calc(100vh-64px)] flex items-center justify-center">
+				<p className="pb-16 font-bold">There is no entry for this date.</p>
+			</div>
+		)
+	}
+
 	return (
 		<div className="card 2xl:card-side 2xl:px-16 2xl:h-[calc(100vh-64px)]">
 			<ApodMedia apod={apod}/>

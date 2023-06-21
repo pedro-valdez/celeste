@@ -1,4 +1,4 @@
-import { Apod } from "."
+import { Apod, ApodError } from "."
 
 const baseUrl = "https://api.nasa.gov"
 const endpoint = "planetary/apod"
@@ -18,13 +18,15 @@ function makeApodUrl(date: string) : URL {
 	return apodUrl
 }
 
-export async function fetchApod(date: string): Promise<Apod | null> {
+export async function fetchApod(date: string): Promise<Apod | ApodError | null> {
 	const apodUrl = makeApodUrl(date)
 
 	try {
 		const resp = await fetch(apodUrl.href)
-		const apod = resp.json()
+		const apod = await resp.json()
 
-		return apod
-	} catch { return null }
+		let error = apod.code ? true : false
+
+		return { ...apod, error }
+	} catch{ return null }
 }

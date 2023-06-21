@@ -10,9 +10,17 @@ export type Apod = {
 	title: string,
 	url?: string,
 	copyright?: string,
+	error: false,
 }
 
-export async function getApod(date: string): Promise<Apod | null> {
+export type ApodError = {
+	code: number,
+	msg: string,
+	service_version: string,
+	error: true,
+}
+
+export async function getApod(date: string): Promise<Apod | ApodError | null> {
 	const localApod = await readApod(date)
 	if (localApod) { return localApod }
 
