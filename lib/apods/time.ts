@@ -39,6 +39,20 @@ export function getNextDate(date: string) {
 	return dayjs.tz(date).add(1, "day").format(dateFormat)
 }
 
+export function isAtBeginning(date: string) {
+	const start = dayjs.tz("1995-06-16")
+	const moment = dayjs.tz(date)
+
+	return moment.isSame(start)
+}
+
+export function isAtEnd(date: string) {
+	const end = dayjs().tz().startOf("day")
+	const moment = dayjs.tz(date)
+
+	return moment.isSame(end)
+}
+
 export function isDateInRange(date: string) {
 	const start = dayjs.tz("1995-06-16")
 	const end = dayjs().tz().startOf("day")
