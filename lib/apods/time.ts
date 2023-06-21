@@ -49,3 +49,15 @@ export function isDateInRange(date: string) {
 
 	return isAfterStart && isBeforeEnd
 }
+
+export function generateAllDates() {
+	const start = dayjs.tz("1995-06-16")
+	const end = dayjs().tz().startOf("day")
+	const dates = []
+
+	for (let day = start.clone(); !day.isAfter(end); day = day.add(1, "day")) {
+		dates.push(day.format(dateFormat))
+	}
+
+	return dates
+}
