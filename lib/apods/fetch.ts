@@ -7,7 +7,7 @@ const endpoint = "planetary/apod"
  * API keys are usually private, this one is a demo key,
  * so for the time being it is ok to have it here.
  */
-const apiKey = "DEMO_KEY"
+const apiKey = process.env.NASA_API_KEY!
 const url = new URL(endpoint, baseUrl)
 url.searchParams.append("api_key", apiKey)
 
