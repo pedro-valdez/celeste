@@ -1,3 +1,4 @@
+"use client"
 import { HiChevronLeft } from "react-icons/hi"
 import ApodLink from "./ApodLink";
 import { getPreviousDate, isAtBeginning } from "@/lib/apods/time";
